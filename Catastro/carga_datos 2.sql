@@ -10,121 +10,18 @@ UPDATE mydb.construccion SET cp = 37207;
 UPDATE mydb.construccion SET m2_solar = 500,fecha_construccion = '2010-09-01' WHERE numero = 23;
 UPDATE mydb.construccion SET m2_solar = 600,fecha_construccion = '2011-06-01' WHERE numero = 24;
 UPDATE mydb.construccion SET m2_solar = 750,fecha_construccion = '2011-12-22' WHERE numero = 25;
-
 COMMIT;
--- -----------------------------------------------------
--- Data for table `mydb`.`zona`
--- -----------------------------------------------------
+
+-- Actualizacion de la tabla vivienda_unifamiliar
 START TRANSACTION;
-INSERT INTO mydb.zona (nombre, limites, extension) VALUES ('central', NULL, NULL);
-
+UPDATE mydb.vivienda_unifamiliar SET m2_construidos = 537 WHERE numero = 24;
+UPDATE mydb.vivienda_unifamiliar SET m2_construidos = 700 WHERE numero = 25;
 COMMIT;
 
-
--- -----------------------------------------------------
--- Data for table `mydb`.`construccion`
--- -----------------------------------------------------
+-- Actualizacion de la tabla bloque
 START TRANSACTION;
-INSERT INTO mydb.construccion (numero, calle, cp, m2_solar, fecha_construccion, tipo) VALUES (23, 'primera', 37207, 500, '2010-09-01', 'bloque');
-INSERT INTO mydb.construccion (numero, calle, cp, m2_solar, fecha_construccion, tipo) VALUES (24, 'segunda', 37207 , 600 , '2011-06-01', 'vivienda');
-INSERT INTO mydb.construccion (numero, calle, cp, m2_solar, fecha_construccion, tipo)  VALUES (25, 'tercera', 37207, 750, '2011-12-22', 'vivienda');
-
+UPDATE mydb.bloque SET nombre = 'Rosario' , m2_totales = 480 WHERE numero = 23;
 COMMIT;
 
 
--- -----------------------------------------------------
--- Data for table `mydb`.`vivienda_unifamilar`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.vivienda_unifamiliar (m2_construidos, numero, calle) VALUES (NULL, 24, 'segunda');
-INSERT INTO mydb.vivienda_unifamiliar (m2_construidos, numero, calle) VALUES (NULL, 25, 'tercera');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`bloque`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.bloque (nombre, m2_totales, num_plantas, numero, calle) VALUES (NULL, NULL, 2, 23, 'primera');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`piso`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.piso (m2_comun, m2_vivienda, portal, planta, numero, calle) VALUES (70, 150, 'a', 2, 23, 'primera');
-INSERT INTO mydb.piso (m2_comun, m2_vivienda, portal, planta, numero, calle) VALUES (70, 160, 'b', 2, 23, 'primera');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`persona`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.persona (fecha_nac, nombre, apellido, DNI) VALUES ('2012-12-11', 'pepe', NULL, 4321);
-INSERT INTO mydb.persona (fecha_nac, nombre, apellido, DNI)  VALUES ('2013-11-21', 'marcos', NULL, 1234);
-INSERT INTO mydb.persona (fecha_nac, nombre, apellido, DNI)  VALUES ('2014-10-12', 'ramon', NULL, 234);
-INSERT INTO mydb.persona (fecha_nac, nombre, apellido, DNI)  VALUES ('2015-10-15', 'alba', NULL, 432);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`residente`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.residente (DNI) VALUES (1234);
-INSERT INTO mydb.residente (DNI) VALUES (432);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`reside_p`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.reside_p (m2_comun, m2_vivienda, portal, planta, DNI) VALUES (70, 160, 'b', 2, 1234);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`propietario`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.propietario (DNI) VALUES (4321);
-INSERT INTO mydb.propietario (DNI)  VALUES (234);
- 
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`posee_p`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.posee_p (m2_comun, m2_vivienda, portal, planta, DNI)  VALUES (70, 150, 'a', 2, 4321);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`posee_u`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.posee_u (DNI, numero, calle) VALUES (234, 24, 'segunda');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `mydb`.`reside_u`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO mydb.reside_u (DNI, numero, calle) VALUES (432, 25, 'tercera');
-
-COMMIT;
 
